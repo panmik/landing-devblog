@@ -1,0 +1,251 @@
+db.articles.drop()
+
+db.articles.insert({
+    url: 'Development-Branches-Now-Available-on-GitHub',
+    title: 'Development Branches Now Available on GitHub',
+    tags: ['github', 'unreal', 'branch'],
+    date: (new Date('December 16, 2017 09:12:30')).getTime(),
+    intro: 'Internal development branches are now being mirrored to GitHub! Find out how this benefits your projects.',
+    body: [
+        {
+            type: 'subheader',
+            content: 'Someting important about the next paragraph'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'subheader',
+            content: 'Someting important about the next paragraph'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'NVIDIA-Edge-Program-Recipients-April-2018',
+    title: 'NVIDIA Edge Program Recipients - April 2018',
+    tags: ['unreal', 'nvidia', 'Edge'],
+    date: (new Date('December 11, 2017 19:02:30')).getTime(),
+    intro: 'April saw many fantastic submissions to the NVIDIA Edge Program and we ve narrowed down the list to our three recipients for the month. Find out who s taking home top-of-the-line hardware from NVIDIA and enter your project for May.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'In an effort to recognize developers that produce visually outstanding works in Unreal Engine and reward them with top-of-the-line hardware, Epic Games partners with NVIDIA to offer the NVIDIA Edge Program through which selected teams receive a GTX 1080 Ti. Congrats to this month s recipients! Remember, if you ve entered in the past, but your project hasn t been selected, we encourage you to re-enter at any time.',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'Six-Ingredients-for-a-Dynamic-Third-Person-Camera',
+    title: 'Six Ingredients for a Dynamic Third Person Camera',
+    tags: ['unreal', 'camera', 'gamedev', 'tutorial'],
+    date: (new Date('November 5, 2017 05:46:00')).getTime(),
+    intro: 'Daedalic Entertainment explains how to design a camera that highlights key exploration areas of each level and facilitates close-quarters combat, while never interfering with player intent.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'Daedalic Entertainment has been known for critically acclaimed adventure games like Deponia and The Pillars of the Earth for more than a decade. For quite a while, we have been exploring other genres as well, as in the third person adventure State of Mind or another third person action adventure prototype we are going to talk about. For these games, Unreal Engine 4 was the obvious choice for us, as it empowers the whole team to ensure maximum quality of the final product, from programmer to artist to game designer. In this post, we will discuss dynamic cameras in third-person action adventures. The goal is to design a camera that highlights key exploration areas of each level and facilitates close-quarters combat, while never interfering with player intent. The latter is extremely important, as bad camera movement, as perceived by the player, immediately leads to upset or even frustrated players. Unreal Engine 4 already provides a very flexible built-in system for defining arbitrary camera modifiers, which may or may not apply relative view translations and rotations. This way, different gameplay elements can modify the camera without interfering with each other.',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'Development-Branches-Now-Available-on-GitHub-2',
+    title: 'Development Branches Now Available on GitHub 2',
+    tags: ['github', 'unreal', 'branch'],
+    date: (new Date('December 15, 2017 15:26:00')).getTime(),
+    intro: 'Internal development branches are now being mirrored to GitHub! Find out how this benefits your projects.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'NVIDIA-Edge-Program-Recipients-April-2018-2',
+    title: 'NVIDIA Edge Program Recipients - April 2018 2',
+    tags: ['unreal', 'nvidia', 'Edge'],
+    date: (new Date('October 2, 2017 09:14:00')).getTime(),
+    intro: 'April saw many fantastic submissions to the NVIDIA Edge Program and we ve narrowed down the list to our three recipients for the month. Find out who s taking home top-of-the-line hardware from NVIDIA and enter your project for May.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'In an effort to recognize developers that produce visually outstanding works in Unreal Engine and reward them with top-of-the-line hardware, Epic Games partners with NVIDIA to offer the NVIDIA Edge Program through which selected teams receive a GTX 1080 Ti. Congrats to this month s recipients! Remember, if you ve entered in the past, but your project hasn t been selected, we encourage you to re-enter at any time.',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'Six-Ingredients-for-a-Dynamic-Third-Person-Camera-2',
+    title: 'Six Ingredients for a Dynamic Third Person Camera 2',
+    tags: ['unreal', 'camera', 'gamedev', 'tutorial'],
+    date: (new Date('December 5, 2017 05:46:00')).getTime(),
+    intro: 'Daedalic Entertainment explains how to design a camera that highlights key exploration areas of each level and facilitates close-quarters combat, while never interfering with player intent.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'Daedalic Entertainment has been known for critically acclaimed adventure games like Deponia and The Pillars of the Earth for more than a decade. For quite a while, we have been exploring other genres as well, as in the third person adventure State of Mind or another third person action adventure prototype we are going to talk about. For these games, Unreal Engine 4 was the obvious choice for us, as it empowers the whole team to ensure maximum quality of the final product, from programmer to artist to game designer. In this post, we will discuss dynamic cameras in third-person action adventures. The goal is to design a camera that highlights key exploration areas of each level and facilitates close-quarters combat, while never interfering with player intent. The latter is extremely important, as bad camera movement, as perceived by the player, immediately leads to upset or even frustrated players. Unreal Engine 4 already provides a very flexible built-in system for defining arbitrary camera modifiers, which may or may not apply relative view translations and rotations. This way, different gameplay elements can modify the camera without interfering with each other.',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'Development-Branches-Now-Available-on-GitHub-3',
+    title: 'Development Branches Now Available on GitHub 3',
+    tags: ['github', 'unreal', 'branch'],
+    date: (new Date('December 16, 2017 13:13:00')).getTime(),
+    intro: 'Internal development branches are now being mirrored to GitHub! Find out how this benefits your projects.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'image',
+            content: '/images/placeholder.png'
+        },
+        {
+            type: 'paragraph',
+            content: 'We are now mirroring our internal development branches to GitHub! Most of the day-to-day development on the engine happens in these branches, organized by teams or features. We periodically merge these branches into master after testing has been conducted by our QA team, and until now this has been reflected on GitHub as a monolithic commit. You can now see live development work on new features, as it happens, and get full merge history for individual files. All development streams are named with a "dev-" prefix (dev-editor, dev-sequencer, and so on). A few branches have already gone live, and we ll be rolling out to more branches over the next few weeks. Bear in mind that these branches reflect work in progress; they may be buggy or not even compile, though hopefully not for long!',
+        }
+    ],
+    comments: []
+})
+
+db.articles.insert({
+    url: 'NVIDIA-Edge-Program-Recipients-April-2018-3',
+    title: 'NVIDIA Edge Program Recipients - April 2018 3',
+    tags: ['unreal', 'nvidia', 'Edge'],
+    date: (new Date('September 9, 2017 16:23:18')).getTime(),
+    intro: 'April saw many fantastic submissions to the NVIDIA Edge Program and we ve narrowed down the list to our three recipients for the month. Find out who s taking home top-of-the-line hardware from NVIDIA and enter your project for May.',
+    body: [
+        {
+            type: 'paragraph',
+            content: 'In an effort to recognize developers that produce visually outstanding works in Unreal Engine and reward them with top-of-the-line hardware, Epic Games partners with NVIDIA to offer the NVIDIA Edge Program through which selected teams receive a GTX 1080 Ti. Congrats to this month s recipients! Remember, if you ve entered in the past, but your project hasn t been selected, we encourage you to re-enter at any time.',
+        }
+    ],
+    comments: []
+})
+
+db.articles.updateMany({}, {$set: {
+    comments: [
+        {
+            _id: ObjectId(),
+            userName: 'jill',
+            date: (new Date('December 17, 2017 03:24:00')).getTime(),
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            replies: [
+                {
+                    _id: ObjectId(),
+                    userName: 'john',
+                    date: (new Date('December 17, 2017 12:30:00')).getTime(),
+                    text:"cool",
+                    replies:[
+                        {
+                            _id: ObjectId(),
+                            userName: 'mark',
+                            date: (new Date('December 18, 2017 09:12:30')).getTime(),
+                            text:"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                            replies:[]
+                        }
+                    ]
+                },
+                {
+                    _id: ObjectId(),
+                    userName: 'george',
+                    date: (new Date('December 18, 2017 08:05:30')).getTime(),
+                    text:"wow",
+                    replies:[]
+                }
+            ]
+        },
+        {
+            _id: ObjectId(),
+            userName: 'bill',
+            date: (new Date('December 19, 2017 19:56:30')).getTime(),
+            text:"first",
+            replies:[
+                {
+                    _id: ObjectId(),
+                    userName: 'joe',
+                    date: (new Date('December 21, 2017 16:02:10')).getTime(),
+                    text: "no one cares",
+                    replies:[]
+                }
+            ]
+        }
+    ]
+}})
