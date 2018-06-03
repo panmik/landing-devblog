@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Post from './Post.js';
-import ArticleList from './ArticleList.js';
+import Post from './Post';
+import ArticleList from './ArticleList';
 
 
 export default class DevBlog extends React.Component {

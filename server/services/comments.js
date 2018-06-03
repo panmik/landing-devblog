@@ -36,9 +36,6 @@ function add({articleUrl, path, userName, date, text}) {
     return dao.db.collection('articles')
     .findOne({ url: articleUrl, [path]: {$exists: true} })
     .then(result => {
-        console.log("found article:");
-        console.log(path);
-        console.log(result);
         if (!result) {
             throw new Error("invalid path or article url");
         }

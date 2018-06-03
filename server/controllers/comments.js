@@ -1,5 +1,5 @@
 const commentsService = require('../services/comments'); 
-const helpers = require('../helpers/index');
+const helpers = require('../helpers');
 
 function getAllInArticle(params) {
     if (!params || !params.articleUrl) {

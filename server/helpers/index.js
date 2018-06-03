@@ -2,7 +2,6 @@ function hasDefinedProperties(obj, properties) {
     for (var p=0; p < properties.length; p++) {
         if (!obj.hasOwnProperty(properties[p]) || obj[properties[p]] === undefined
             || obj[properties[p]] === '' || obj[properties[p]] === null) {
-            console.log(properties[p] + ' not found!');
             return false;
         }
     }

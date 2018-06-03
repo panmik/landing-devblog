@@ -11,6 +11,7 @@ Landing page and dev blog for a game.
 - [ ] reply form styling  
 - [ ] redesign article tiles (aside with titles / scrolllist with titles and summary)  
 - [ ] home - placeholder art and embedded content  
+- [ ] sanitize username
 - [ ] persistance  
 - [ ] clear logs  
 - [ ] hackish css   

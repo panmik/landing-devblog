@@ -12,9 +12,6 @@ export default class Pager extends React.Component {
     };
 
     setPage = (page) => {
-        console.log("page:");
-        console.log(page);
-        console.log("----");
         const p = Math.min(Math.max(page, 1), this.state.pageCount);
         this.setState({page: p});
         this.props.fetchPage(p);

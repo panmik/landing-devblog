@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {updateReply} from '../Actions/actions.js';
+import {updateReply} from '../Actions';
 
+//============= SINGLE COMMENT ===============================
 const Comment = ({_id, articleId, replies, date, text, userName,
                 parentName, threadPath, replyRef, updateReply}) => {
 
@@ -23,7 +24,6 @@ const Comment = ({_id, articleId, replies, date, text, userName,
                             <button className="btn btn-sm btn-link btn-text no-underline py-0"
                                 onClick={() => {
                                     updateReply({to: userName, threadPath: threadPath});
-                                    console.log({to: userName, threadPath: threadPath});
                                     replyRef.scrollTo();
                                     replyRef.focus();
                                 }}>Reply</button>
@@ -39,7 +39,7 @@ const Comment = ({_id, articleId, replies, date, text, userName,
     );
 };
 Comment.propTypes = {
-    _id: PropTypes.string.isRequired,        //-spread
+    _id: PropTypes.string.isRequired,       //-spread
     userName: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
@@ -58,8 +58,7 @@ const CommentContainer = connect(
     })
 )(Comment);
 
-//=================================================================================
-
+//========================= THREAD =====================================
 const CommentThread = ({comments, parentName="author", threadPath=[]}) => {
     const o = 20;
     const d = 40;

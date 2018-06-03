@@ -1,5 +1,5 @@
 import React from 'react';
-import {lorem, lorem2, lorem3} from '../Utilities/utilities.js'
+import {lorem, lorem2, lorem3} from '../Utilities'
 
 const Home = (props) => {
     return (

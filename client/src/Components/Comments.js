@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CommentThread from './CommentThread.js';
-import ReplyContainer from './Reply.js';
-import {sorByDateDescending} from '../Utilities/utilities.js';
+import CommentThread from './CommentThread';
+import ReplyContainer from './Reply';
+import {sorByDateDescending} from '../Utilities';
 
 /*<p className="text-centered">Leave a comment <i className="fa fa-comment-alt icon-sm"></i></p>*/
 const Comments = ({comments, updateComments, articleUrl}) => {

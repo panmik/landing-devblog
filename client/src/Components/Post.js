@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { componentStates, fetchArticle, fetchComments } from '../Actions/actions.js';
-import Article from './Article.js';
-import Comments from './Comments.js';
-import Error from './Error.js';
-import Loading from './Loading.js';
+import { componentStates, fetchArticle, fetchComments } from '../Actions';
+import Article from './Article';
+import Comments from './Comments';
+import Error from './Error';
+import Loading from './Loading';
 
 class Post extends React.Component {
     static propTypes = {

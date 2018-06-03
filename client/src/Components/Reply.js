@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {updateUser, updateReply, updateRefs, addComment} from '../Actions/actions.js';
+import {updateUser, updateReply, updateRefs, addComment} from '../Actions';
 
 class Reply extends React.Component {
     static propTypes = {
@@ -67,14 +67,13 @@ class Reply extends React.Component {
         };
         this.props.addComment(reply)
         .then(res => {
-            console.log(res);
             this.setState({text: '', usernameEditable: false});
             this.handleCancelReplyTo();
             this.setState({msg: 'comment added!', msgClass: 'primary'});
         })
         .catch(err => {
-            console.log(err);
-            this.setState({msg: err.toString(), msgClass: 'danger'});
+            console.err(err);
+            this.setState({msg: "something went wrong", msgClass: 'danger'});
         });
     }
 
@@ -83,13 +82,13 @@ class Reply extends React.Component {
             <div className="card card-comment">
                 <div className="card-header">
                     {this.state.msg !== '' && (                
-                            <p className='m-0 p-0'>
-                                {`${this.state.msg}`}
-                                <a className="btn btn-sm btn-link btn-text no-underline py-0 mb-0"
-                                    onClick={() => this.setState({msg:''})}>
-                                    x
-                                </a>
-                            </p>)}
+                        <p className='m-0 p-0'>
+                            {`${this.state.msg}`}
+                            <a className="btn btn-sm btn-link btn-text no-underline py-0 mb-0"
+                                onClick={() => this.setState({msg:''})}>
+                                x
+                            </a>
+                        </p>)}
                 </div>
                 
                 <div className="card-body">       

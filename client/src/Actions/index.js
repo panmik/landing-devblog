@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getPropertyByDotNotation} from '../Utilities/utilities';
+import {getPropertyByDotNotation} from '../Utilities';
 
 const componentStates = {
     NOT_MOUNTED: 'NOT_MOUNTED',
@@ -34,47 +34,23 @@ const fetchDataWithLoadingAndError = (url, componentId, handleResponseActionCrea
 
         //do not dispatch if cached
         if (cacheFieldName && cacheUrl) {
-            console.log("in caching handler:");
-            console.log(cacheFieldName);
-            console.log(getPropertyByDotNotation(getState(), cacheFieldName));
             const cachedObj = getPropertyByDotNotation(getState(), cacheFieldName).find(co => co.url === cacheUrl);
-            console.log(cachedObj);
             if (cachedObj && cachedObj.full) {
-                console.log(componentId + ' is cached');
                 return "is cached";
-            }
-            else {
-                console.log("not cached");
             }
         }
 
         return axios.get(url)
         .then(res => {
-            console.log("a.fetch initiated");
-            console.log(res.data);
             dispatch(handleResponseActionCreator(res.data));
-            console.log("b.dispatched with data");
             dispatch(setComponentState(componentStates.LOADED, componentId));
-            console.log(`c.fetched from "${url}":`);
-            console.log(res.data);
-            console.log('d.new state:');
-            console.log(getState());
             return "fetch data ok!";
         })
         .catch(err => {
             console.log(`ERROR fetching from "${url}"`);
-            //console.log(err.response);
             dispatch(setComponentState(componentStates.ERROR, componentId));
-            //throw new Error(err.response.data);
-            //throw new Error(`ERROR fetching from "${url}"`);
         });
     };
-};
-
-const postData = (url, data) => {
-    console.log(`posting to ${url}:`);
-    console.log(data);
-    return axios.post(url, data);
 };
 
 /* update* receives object, set* a field value, add* takes either, fetch calls api */
@@ -95,14 +71,11 @@ const fetchComments = postUrl =>
 
 const addComment = (reply, postUrl) => {
     return dispatch => {
-        return postData('/comments', reply)
+        return axios.post('/comments', reply)
         .then(res => {
-            console.log("post succesfull?");
             return dispatch(fetchComments(postUrl));
         })
         .catch(err => {
-            console.log('error posting reply:');
-            console.log(err.response);
             throw new Error(err.response.data);
         });
     }

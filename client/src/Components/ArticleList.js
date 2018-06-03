@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {fetchArticleList, componentStates} from '../Actions/actions.js';
-import Error from './Error.js';
-import Loading from './Loading.js';
-import ArticleCard from './ArticleCard.js';
-import Pager from './Pager.js';
+import {fetchArticleList, componentStates} from '../Actions';
+import Error from './Error';
+import Loading from './Loading';
+import ArticleCard from './ArticleCard';
+import Pager from './Pager';
 
 class ArticleList extends React.Component {
     static propTypes = {
@@ -24,7 +24,6 @@ class ArticleList extends React.Component {
     }
 
     fetchArticleListAndUpdatePage = (page) => {
-        console.log(`fetching article list, page ${page}`);
         this.setState({page});
         this.props.fetchArticleList(page);
     }

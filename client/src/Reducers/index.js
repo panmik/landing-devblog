@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import {types, componentStates} from '../Actions/actions.js';
-import {mergeAllowed, sortbyDateDescending} from '../Utilities/utilities.js';
+import {types, componentStates} from '../Actions';
+import {mergeAllowed, sortbyDateDescending} from '../Utilities';
 
 let initialState =  {
     user: {
@@ -27,23 +27,27 @@ let initialState =  {
     }
 };
 
-const commonReducer = (state, action, type, isObject) => {
-    if (action.type === type) {
-        return isObject ? mergeAllowed(state, action.value) : action.value;
-    }
-    return state;
-};
+// helpful in debugging state changes
+const reducerLogger = (context='reducer:') =>
+    (items) => {
+        console.log(context);
+        for (const i of items) {
+            console.log(i);
+        }
+        console.log('-------------');
+    };
 
-const userReducer = (state=initialState.user, action) => {
-    switch (action.type) {
-        case types.UPDATE_USER: {
-            return Object.assign({}, state, action.value);
+// for reducers that are simple assign/merge ops and match a single type
+// could improve to account for more elaborate mutations
+const commonReducer = (initialStateValue, matchedType, logger=null) => 
+    (state=initialStateValue, action) => {
+        if (action.type === matchedType) {   
+            const newState = Array.isArray(action.value) ? action.value : mergeAllowed(state, action.value);
+            logger && logger([state, action.value, newState]); 
+            return newState;
         }
-        default: {
-            return state;
-        }
-    }
-};
+        return state;
+    };
 
 const componentStatesReducer = (state=initialState.componentStates, action) => {
     switch (action.type) {
@@ -56,28 +60,16 @@ const componentStatesReducer = (state=initialState.componentStates, action) => {
     }
 }
 
-const refsReducer = (state=initialState.refs, action) => {
-    switch (action.type) {
-        case types.UPDATE_REFS: {
-            return mergeAllowed(state, action.value);
-        }
-        default: {
-            return state;
-        }
-    }
-};
-
 const articlesReducer = (state=initialState.articles, action) => {
     switch (action.type) {
         case types.SET_ARTICLE_LIST: {
             if (!action.value.content || !action.value.page) {
-                console.log("no content or page data in article list");
+                console.err("no content or page data in article list");
                 return state;
             }
             const newArticleHeaders = action.value.content
-                .filter(na => 
-                    state.content.find(oa => oa.url === na.url) === undefined
-                );
+                .filter(na => state.content.find(oa => oa.url === na.url) === undefined);
+
             if (newArticleHeaders.length === 0) {
                 return state;
             }
@@ -90,27 +82,23 @@ const articlesReducer = (state=initialState.articles, action) => {
             };
         }
         case types.SET_ARTICLE: {
-            const oldArticles = state.content;
+            const cachedArticles = state.content;
             const articleHeaderIndex = state.content.findIndex(a => a.url === action.value.url);
-            console.log(`header index: ${articleHeaderIndex}`);
             const fullArticle = {...action.value, full: true};
-            
-            console.log(fullArticle);
+
             //update existing incomplete entry
             if (articleHeaderIndex >= 0) {
-                console.log("updating header");
                 return {
                     ...state,
-                    content: [...oldArticles.slice(0, articleHeaderIndex), fullArticle,
-                         ...oldArticles.slice(articleHeaderIndex+1)]
+                    content: [...cachedArticles.slice(0, articleHeaderIndex), fullArticle,
+                         ...cachedArticles.slice(articleHeaderIndex+1)]
                 };
             }
             //add full article
             else {
-                console.log("adding article");
                 return {
                     ...state,
-                    content: [...oldArticles, fullArticle]
+                    content: [...cachedArticles, fullArticle].sort(sortbyDateDescending)
                 };
             }
         }
@@ -120,33 +108,11 @@ const articlesReducer = (state=initialState.articles, action) => {
     }
 };
 
-const commentsReducer = (state=initialState.comments, action) => {
-    switch (action.type) {
-        case types.SET_COMMENTS: {
-            return action.value;
-        }
-        default: {
-            return state;
-        }
-    }
-};
-  
-const replyReducer = (state=initialState.reply, action) => {
-    switch (action.type) {
-        case types.UPDATE_REPLY: {
-            return mergeAllowed(state, action.value);
-       }
-        default: {
-            return state;
-        }
-    }
-}
-
 export default combineReducers({
-    user: userReducer,
-    refs: refsReducer,
+    user: commonReducer(initialState.user, types.UPDATE_USER, reducerLogger()),
+    refs: commonReducer(initialState.refs, types.UPDATE_REFS),
     componentStates: componentStatesReducer,
     articles: articlesReducer,
-    comments: commentsReducer,
-    reply: replyReducer
+    comments: commonReducer(initialState.comments, types.SET_COMMENTS, reducerLogger("in comments reducer:")),
+    reply: commonReducer(initialState.reply, types.UPDATE_REPLY),
 });

@@ -1,4 +1,4 @@
-const hasDefined = require('../helpers/index').hasDefinedProperties;
+const hasDefined = require('../helpers').hasDefinedProperties;
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
