@@ -2,17 +2,17 @@ const ObjectID = require('./index').ObjectID;
 const getArticles = require('./index').collectionGetter('articles');
 
 function getAllInArticle(articleUrl) {
-    return getArticles().findOne({url: articleUrl}, { projection: {_id: 0, comments: 1} })
+    return getArticles().findOne({ url: articleUrl }, { projection: { _id: 0, comments: 1 } })
         .then(result => {
-            if (!result || ! result.comments) {
+            if (!result || !result.comments) {
                 throw new Error("invalid article url");
             }
             return result.comments;
         });
 };
 
-function getAll(flat=true) {
-    return getArticles().find({}, { projection: {_id: 0, comments: 1} })
+function getAll(flat = true) {
+    return getArticles().find({}, { projection: { _id: 0, comments: 1 } })
         .toArray()
         .then(result => {
             const comments = result.map(obj => obj.comments);
@@ -20,10 +20,10 @@ function getAll(flat=true) {
         })
 }
 
-function add({articleUrl, path, userName, date, text}) {
+function add({ articleUrl, path, userName, date, text }) {
     return getArticles()
         //ensure parent article exists
-        .findOne({ url: articleUrl, [path]: {$exists: true} })
+        .findOne({ url: articleUrl, [path]: { $exists: true } })
         .then(result => {
             if (!result) {
                 throw new Error("invalid path or article url");
@@ -39,7 +39,7 @@ function add({articleUrl, path, userName, date, text}) {
         })
         //push new comment
         .then(comment => {
-            return getArticles().update({ url: articleUrl }, { $push: {[path]: comment} });
+            return getArticles().update({ url: articleUrl }, { $push: { [path]: comment } });
         })
         .then(operation => {
             if (operation.result.nModified > 0) {

@@ -4,7 +4,7 @@ let sortbyDateDescending = require('../helpers').sortByDataDescending;
 
 function getByUrl(url) {
     return getArticles()
-        .findOne({url: url}, { projection: {comments: 0} })
+        .findOne({ url: url }, { projection: { comments: 0 } })
         .then(result => {
             if (!result) {
                 throw new Error("invalid article url");
@@ -15,10 +15,10 @@ function getByUrl(url) {
 
 function getAllInPage(page, getFullContent, articlesPerPage) {
     return getArticles()
-        .find({}, { projection: {comments: 0} })
+        .find({}, { projection: { comments: 0 } })
         .toArray()
         .then(result => {
-            const firstIndex = (page-1) * articlesPerPage;
+            const firstIndex = (page - 1) * articlesPerPage;
             if (firstIndex >= result.length || firstIndex < 0) {
                 return res.send([]);
             }
@@ -46,7 +46,7 @@ function getAllInPage(page, getFullContent, articlesPerPage) {
             })
             .sort(sortbyDateDescending)
             .slice(firstIndex, lastIndex);
-        
+
             return {
                 content: articles,
                 page: page
