@@ -18,9 +18,7 @@ class Reply extends React.Component {
     state = {
         text: '',
         msg: '',
-        msgClass: 'warning'/*,
-        usernameEditable: false,
-        userName: this.props.userName*/
+        msgClass: 'warning'
     };
 
     textAreaRef = React.createRef();
@@ -132,16 +130,6 @@ class Reply extends React.Component {
         );
     }   
 }
-/*
-<div className="input-group-apppend">
-                                    <div className="at ml-4 mt-2 pt-1 pb-0">
-                                        <strong>@</strong>
-                                        <strong className="text-muted">{` ${this.props.reply.to}`}</strong>
-                                        <button className="btn btn-sm btn-link btn-text no-underline py-0"
-                                            onClick={this.handleCancelReplyTo}>x</button>
-                                    </div>
-                                </div>)}
-                                */
 
 const mapStateToProps = state => {
     return {
@@ -159,48 +147,3 @@ const mapPropsToDispatch = (dispatch, ownProps) => {
 };
 
 export default connect(mapStateToProps, mapPropsToDispatch)(Reply);
-
-/*<div className="card card-comment">    
-                <div className="card-header">
-                    <div className="row">
-                        <div className="input-group col-sm-3">
-                            <div className="input-group-prepend">
-                                <button className="btn btn-sm btn-outline-primary btn-themed" type="button"
-                                    onClick={this.handleEditClick}>{this.state.usernameEditable ? 'done' : 'post as:'}</button>
-                            </div>
-                            <input ref={this.inputRef} type="text" className="form-control form-control-sm" placeholder="Username"
-                                onChange={(e) => this.setState({userName: e.target.value})}
-                                value={this.state.userName} aria-label="Username" aria-describedby="basic-addon1"
-                                disabled={!this.state.usernameEditable}/>
-                        </div>
-                        {this.props.reply.threadPath.length > 0 && (
-                        <div className="col-sm-3 floater">
-                            <strong>@</strong>
-                            <strong className="text-muted">{` ${this.props.reply.to}`}</strong>
-                            <button className="btn btn-sm btn-link btn-text no-underline py-0"
-                                onClick={this.handleCancelReplyTo}>x</button>
-                        </div>)}
-                    </div>
-                </div>
-                
-                <div className="card-body">       
-                    <textarea className="form-control reply-text" value={this.state.text} placeholder='Leave a comment'
-                         ref={this.textAreaRef} onChange={(e) => this.setState({text: e.target.value})}>
-                    </textarea>
-                </div>
-                <div className="card-footer pb-0">
-                    <div className="row mb-0">
-                        {this.state.msg !== '' && (
-                        <div className="col col-sm-9 pl-2">
-                            <div className={`alert alert-${this.state.msgClass} alert-dismissible p-2 mb-3`}>
-                                <a className="close pt-1 pr-3" onClick={() => this.setState({msg:''})}>&times;</a>
-                                <strong className='text-muted'>{this.state.msg}</strong>
-                            </div>
-                        </div>)}
-                        <div className={this.state.msg ? "col col-sm-3 pr-2" : "col pb-2 mb-1 pr-2"}>
-                            <button className="btn btn-themed float-right" type="button" onClick={this.handleAddComment}
-                                    disabled={this.state.text.length<1}>Comment</button>
-                        </div>
-                    </div>
-                </div>
-            </div>*/

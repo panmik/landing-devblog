@@ -18,7 +18,7 @@ function add(reply) {
     }
 
     const path = reply.threadPath.reduce((acc, curr) => acc += `.${curr}.replies`, 'comments');
-    commentsService.add({...reply, path});
+    return commentsService.add({...reply, path});
 }
 
 module.exports = {

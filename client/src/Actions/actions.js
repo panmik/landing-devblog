@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getPropertyByDotNotation} from '../Utilities/utilities.js';
+import {getPropertyByDotNotation} from '../Utilities/utilities';
 
 const componentStates = {
     NOT_MOUNTED: 'NOT_MOUNTED',
@@ -91,11 +91,11 @@ const fetchArticleList = (page) =>
 const fetchArticle = postUrl =>
     fetchDataWithLoadingAndError(`/articles/${postUrl}`, 'article', setArticle, 'articles.content', postUrl);
 const fetchComments = postUrl =>
-    fetchDataWithLoadingAndError(`/articles/${postUrl}/comments`, 'comments', setComments);
+    fetchDataWithLoadingAndError(`/comments/${postUrl}`, 'comments', setComments);
 
 const addComment = (reply, postUrl) => {
     return dispatch => {
-        return postData('/reply', reply)
+        return postData('/comments', reply)
         .then(res => {
             console.log("post succesfull?");
             return dispatch(fetchComments(postUrl));

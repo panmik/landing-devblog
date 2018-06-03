@@ -7,7 +7,8 @@ const dbPort = 27017;
 
 let dao = {
     db: null,
-    msg: ""
+    msg: "",
+    ObjectID
 };
 
 MongoClient.connect(`mongodb://localhost:${27017}/${databaseName}`, function(err, database) {

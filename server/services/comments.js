@@ -33,7 +33,7 @@ function getAll() {
 }
 
 function add({articleUrl, path, userName, date, text}) {
-    return db.collection('articles')
+    return dao.db.collection('articles')
     .findOne({ url: articleUrl, [path]: {$exists: true} })
     .then(result => {
         console.log("found article:");
@@ -48,14 +48,14 @@ function add({articleUrl, path, userName, date, text}) {
     })
     .then(result => {
         const newReply = {
-            _id: ObjectID(),
+            _id: dao.ObjectID(),
             userName,
             date: Date.now(),
             text,
             replies: []
         };
-        return db.collection('articles')
-                .update({ url: req.body.articleUrl }, { $push: {[path]: newReply} });
+        return dao.db.collection('articles')
+                .update({ url: articleUrl }, { $push: {[path]: newReply} });
     })
     .then(result => {
         if (result.result.nModified > 0) {
@@ -69,5 +69,6 @@ function add({articleUrl, path, userName, date, text}) {
 
 module.exports = {
     getAllInArticle,
-    getAll
+    getAll,
+    add
 };
