@@ -1,9 +1,15 @@
-An over engineered landing page and dev blog for a game.    
-  
-//TODO  
--Article List view? (aside with titles, tiles/columns)  
--reply scroll to bottom link  
--username input styling  
--err.response undefined  
--express routes   
--project files structure  
+Landing page and dev blog for a game.    
+
+## TODO  
+#### backend  
+- [x] route handler     
+- [ ] insertion validator  
+
+#### frontend  
+- [x] scroll to reply textarea on 'reply' click  
+- [ ] -//- on 'Leave a Comment' click  
+- [ ] reply form styling  
+- [ ] redesign article tiles (aside with titles / scrolllist with titles and summary)  
+- [ ] home - placeholder art and embedded content  
+- [ ] hackish css   
+- [ ] clear public folder  

@@ -1,68 +1,25 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
-
-const errorMessages = {
-    DATABASE_ERROR: 'database error',
-    RESOURCE_NOT_FOUND: 'requested resource was not found',
-    INVALID_POST_DATA: 'invalid post data'
-};
-
-function sendSuccess(res, msg) {
-    res.status(200).send(msg);
-}
-function sendError(res, msg) {
-    res.status(500).send(msg);
-}
-
-function hasDefinedProperties(obj, properties) {
-    for (var p=0; p < properties.length; p++) {
-        if (!obj.hasOwnProperty(properties[p]) || obj[properties[p]] === undefined
-            || obj[properties[p]] === '' || obj[properties[p]] === null) {
-            console.log(properties[p] + ' not found!');
-            return false;
-        }
-    }
-    return true;
-}
-
-const sortbyDateDescending = (a, b) => {
-    if (a.date === b.date) {
-        return 0;
-    }
-    else {
-        return a.date < b.date ? 1 : -1;
-    }
-}
-
-var urlParser = bodyParser.urlencoded({
-    extended: false
-});
-var jsonParser = bodyParser.json();
+const port = 3005;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
-
-var MongoClient = require('mongodb').MongoClient;
-var ObjectID = require('mongodb').ObjectID;
-var db;
-var port = 3005;
-
-MongoClient.connect("mongodb://localhost:27017/blog", function(err, database) {
-    if(err) throw err;
-
-    db = database.db('blog');
-    app.listen(port);
-    console.log("Listening on port " + port);
 });
+
+const comments = require('./routes/comments');
+const articles = require('./routes/articles');
+
+app.use('/comments', comments);
+app.use('/articles', articles);
 
 app.get('/', (req, res) => res.send("What's up"));
 
+app.listen(port);
+
 //-------------------- /articles ---------------------------
-app.get('/articles', (req, res) => {
+/*app.get('/articles', (req, res) => {
     const articlesPerPage = 5;
     const page = (req.query.page && req.query.page >= 1) ? req.query.page : 1;
     const getFull = (req.query.full && req.query.full === 1) ? true : false;
@@ -129,22 +86,6 @@ app.get('/articles/:articleUrl', (req, res) => {
         }
     });
 });
-app.get('/articles/:articleUrl/comments', (req, res) => {
-    db.collection('articles')
-    .findOne({url: req.params.articleUrl}, (error, result) => {
-        if (error) {
-            sendError(res, errorMessages.DATABASE_ERROR);
-        }
-        else {
-            if (!result) {
-                sendError(res, errorMessages.RESOURCE_NOT_FOUND);
-            }
-            else {
-                res.send(result.comments);
-            }
-        }
-    });
-});
 
 //----------------------- /reply ----------------------------------------
 app.post('/reply', jsonParser, function (req, res) {
@@ -153,6 +94,7 @@ app.post('/reply', jsonParser, function (req, res) {
     }
 
     const path = req.body.threadPath.reduce((acc, curr) => acc += `.${curr}.replies`, 'comments');
+    //comments.$0.replies.$2.replies
 
     let exists = true;
     db.collection('articles')
@@ -195,4 +137,4 @@ app.post('/reply', jsonParser, function (req, res) {
         sendError(res, error.message);
     });
 
-});
+});*/
