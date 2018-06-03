@@ -64,7 +64,7 @@ const articlesReducer = (state=initialState.articles, action) => {
     switch (action.type) {
         case types.SET_ARTICLE_LIST: {
             if (!action.value.content || !action.value.page) {
-                console.err("no content or page data in article list");
+                console.error("no content or page data in article list");
                 return state;
             }
             const newArticleHeaders = action.value.content

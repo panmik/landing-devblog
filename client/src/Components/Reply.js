@@ -72,7 +72,7 @@ class Reply extends React.Component {
             this.setState({msg: 'comment added!', msgClass: 'primary'});
         })
         .catch(err => {
-            console.err(err);
+            console.error(err);
             this.setState({msg: "something went wrong", msgClass: 'danger'});
         });
     }
