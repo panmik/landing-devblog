@@ -11,8 +11,7 @@ function hasDefinedProperties(obj, properties) {
 function sortbyDateDescending(a, b) {
     if (a.date === b.date) {
         return 0;
-    }
-    else {
+    } else {
         return a.date < b.date ? 1 : -1;
     }
 }

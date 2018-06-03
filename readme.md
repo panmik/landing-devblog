@@ -1,4 +1,4 @@
-Landing page and dev blog for a game.    
+Game landing page with a development blog
 
 ## TODO  
 #### backend  
@@ -9,7 +9,7 @@ Landing page and dev blog for a game.
 - [x] scroll to reply textarea on 'reply' click  
 - [ ] -//- on 'Leave a Comment' click  
 - [ ] reply form styling  
-- [ ] redesign article tiles (aside with titles / scrolllist with titles and summary)  
+- [ ] redesign article tiles (aside with titles / article list with titles and summary)  
 - [ ] home - placeholder art and embedded content  
 - [ ] sanitize username
 - [ ] persistance  

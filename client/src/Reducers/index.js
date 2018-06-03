@@ -98,7 +98,7 @@ const articlesReducer = (state=initialState.articles, action) => {
             else {
                 return {
                     ...state,
-                    content: [...cachedArticles, fullArticle].sort(sortbyDateDescending)
+                    content: [...cachedArticles, fullArticle]
                 };
             }
         }
