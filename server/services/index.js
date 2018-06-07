@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
-const databaseName = 'blog';
+const databaseName = 'heroku_2tjxv053' || 'blog';
 const url = process.env.MONGODB_URI || `mongodb://localhost:${27017}/${databaseName}`;
 
 let db = null;
@@ -10,7 +10,7 @@ let msg = '';
 MongoClient.connect(url, (err, database) => {
     if(err) throw err;
 
-    db = database;//.db(databaseName);
+    db = database.db(databaseName);
     console.log("connected to database");
     msg = "initialized!";
 });
