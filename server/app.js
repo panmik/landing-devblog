@@ -8,11 +8,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-// const comments = require('./routes/comments');
-// const articles = require('./routes/articles');
+const comments = require('./routes/comments');
+const articles = require('./routes/articles');
 
-// app.use('/comments', comments);
-// app.use('/articles', articles);
+app.use('/comments', comments);
+app.use('/articles', articles);
 
 app.get('/', (req, res) => res.send("What's up"));
 
