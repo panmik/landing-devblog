@@ -10,7 +10,7 @@ let msg = '';
 MongoClient.connect(url, (err, database) => {
     if(err) throw err;
 
-    db = database.db(databaseName);
+    db = database;//.db(databaseName);
     console.log("connected to database");
     msg = "initialized!";
 });
