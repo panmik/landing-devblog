@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3005;
+const port = PORT = process.env.PORT || 3005;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -16,4 +16,4 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => res.send("What's up"));
 
-app.listen(port);
+app.listen(port, () => console.log(`listening on port ${port}`));
