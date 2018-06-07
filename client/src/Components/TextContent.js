@@ -12,8 +12,11 @@ const TextContent = ({body}) => {
                     case 'subheader': {
                         return <h3 className='subheader-content' key={index}>{elem.content}</h3>
                     }
+                    case 'image-inline': {
+                        return <img className='image-inline' key={index} width={elem.options ? elem.options.width || '600' : '600'} height='auto' src={elem.content} alt="" />
+                    }
                     case 'image': {
-                        return <img className='image-content' key={index} src={elem.content} alt="" />
+                        return <img className='image-content' key={index} width={elem.options ? elem.options.width || '600' : '600'} height='auto' src={elem.content} alt="" />
                     }
                     default: {
                         return <p key={index}>???</p>

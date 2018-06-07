@@ -28,6 +28,7 @@ function getAllInPage(page, getFullContent, articlesPerPage) {
                     return {
                         url: a.url,
                         title: a.title,
+                        thumbnail: a.thumbnail,
                         tags: a.tags,
                         intro: a.intro,
                         body: a.body,
@@ -38,6 +39,7 @@ function getAllInPage(page, getFullContent, articlesPerPage) {
                     return {
                         url: a.url,
                         title: a.title,
+                        thumbnail: a.thumbnail,
                         tags: a.tags,
                         intro: a.intro,
                         date: a.date

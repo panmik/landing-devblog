@@ -77,16 +77,20 @@ body {
 
 .paragraph-content {
     text-align: justify;
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .image-content {
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.image-inline {
+    margin: 2rem 14px 2rem 14px;
 }
 
 /* sections */
