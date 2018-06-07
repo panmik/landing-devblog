@@ -14,6 +14,7 @@ const articles = require('./routes/articles');
 app.use('/comments', comments);
 app.use('/articles', articles);
 
-app.get('/', (req, res) => res.send("What's up"));
+//app.get('/', (req, res) => res.send("What's up"));
+app.use(express.static('public'));
 
 app.listen(port, () => console.log(`listening on port ${port}`));
