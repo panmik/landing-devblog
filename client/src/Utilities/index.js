@@ -32,12 +32,11 @@ function mergeAllowed(state, newState) {
             }), state);
 }
 
-const sortbyDateDescending = (a, b) => {
+const sortByDateDescending = (a, b) => {
     if (a.date === b.date) {
         return 0;
-    } else {
-        return a.date < b.date ? 1 : -1;
     }
+    return a.date < b.date ? 1 : -1;
 }
 
-export {lorem, lorem2, lorem3, mergeAllowed, getPropertyByDotNotation, sortbyDateDescending};
+export {lorem, lorem2, lorem3, mergeAllowed, getPropertyByDotNotation, sortByDateDescending};

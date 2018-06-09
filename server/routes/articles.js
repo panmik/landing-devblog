@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const rh = require('./index').responseHandler;
+const rh = require('./utils').responseHandler;
 const articlesCtrl = require('../controllers/articles');
 
 router

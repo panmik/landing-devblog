@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const bodyParser = require('body-parser');
-const rh = require('./index').responseHandler;
+const rh = require('./utils').responseHandler;
 const commentsCtrl = require('../controllers/comments');
 const jsonParser = bodyParser.json();
 

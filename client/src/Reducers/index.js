@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import {types, componentStates} from '../Actions';
-import {mergeAllowed, sortbyDateDescending} from '../Utilities';
+import {mergeAllowed, sortByDateDescending} from '../Utilities';
 
 let initialState =  {
     user: {
@@ -78,7 +78,7 @@ const articlesReducer = (state=initialState.articles, action) => {
                 ...state,
                 loadedPages: state.loadedPages.includes(page) ?
                     state.loadedPages: state.loadedPages.concat(page).sort(),
-                content: state.content.concat(newArticleHeaders).sort(sortbyDateDescending)
+                content: state.content.concat(newArticleHeaders)
             };
         }
         case types.SET_ARTICLE: {

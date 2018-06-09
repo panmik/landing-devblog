@@ -8,15 +8,21 @@ function hasDefinedProperties(obj, properties) {
     return true;
 }
 
-function sortbyDateDescending(a, b) {
+function sortByDateDescending(a, b) {
     if (a.date === b.date) {
         return 0;
-    } else {
-        return a.date < b.date ? 1 : -1;
     }
+    return a.date < b.date ? 1 : -1;
+}
+function sortByDateAscending(a, b) {
+    if (a.date === b.date) {
+        return 0;
+    }
+    return a.date < b.date ? -1 : 1;
 }
 
 module.exports = {
     hasDefinedProperties,
-    sortbyDateDescending
+    sortByDateDescending,
+    sortByDateAscending
 };

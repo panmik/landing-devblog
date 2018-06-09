@@ -1,6 +1,5 @@
 
 const getArticles = require('./index').collectionGetter('articles');
-let sortbyDateDescending = require('../helpers').sortByDataDescending;
 
 function getByUrl(url) {
     return getArticles()
@@ -11,52 +10,15 @@ function getByUrl(url) {
             }
             return result;
         });
-};
+}
 
-function getAllInPage(page, getFullContent, articlesPerPage) {
+function getAll() {
     return getArticles()
         .find({}, { projection: { comments: 0 } })
-        .toArray()
-        .then(result => {
-            const firstIndex = (page - 1) * articlesPerPage;
-            if (firstIndex >= result.length || firstIndex < 0) {
-                return res.send([]);
-            }
-            const lastIndex = Math.min(firstIndex + articlesPerPage, result.length);
-            const articles = result.map(a => {
-                if (getFullContent) {
-                    return {
-                        url: a.url,
-                        title: a.title,
-                        thumbnail: a.thumbnail,
-                        tags: a.tags,
-                        intro: a.intro,
-                        body: a.body,
-                        date: a.date,
-                        commentCount: 15
-                    }
-                } else {
-                    return {
-                        url: a.url,
-                        title: a.title,
-                        thumbnail: a.thumbnail,
-                        tags: a.tags,
-                        intro: a.intro,
-                        date: a.date
-                    }
-                }
-            })
-            .sort(sortbyDateDescending)
-            .slice(firstIndex, lastIndex);
-
-            return {
-                content: articles,
-                page: page
-            };
-        })
+        .toArray();
 }
 
 module.exports = {
-    getAllInPage,
+    getAll,
     getByUrl
 }

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = PORT = process.env.PORT || 3005;
+const port = process.env.PORT || 3005;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -8,13 +8,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-const comments = require('./routes/comments');
-const articles = require('./routes/articles');
+const routes = require('./routes/index');
+app.use('/comments', routes.comments);
+app.use('/articles', routes.articles);
 
-app.use('/comments', comments);
-app.use('/articles', articles);
-
-//app.get('/', (req, res) => res.send("What's up"));
-app.use(express.static('public'));
+app.get('/', (req, res) => res.send("What's up"));
+//app.use(express.static('public'));
 
 app.listen(port, () => console.log(`listening on port ${port}`));
