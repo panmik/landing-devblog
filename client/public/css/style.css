@@ -81,12 +81,21 @@ body {
     margin-bottom: 2rem;
 }
 
+.image-center {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .image-content {
     margin-top: 2rem;
     margin-bottom: 2rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
 .image-inline {

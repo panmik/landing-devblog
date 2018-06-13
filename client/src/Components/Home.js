@@ -1,19 +1,10 @@
 import React from 'react';
-import {lorem, lorem2, lorem3} from '../Utilities'
 
 const Home = (props) => {
     return (
         <div className='text-body'>
             <p>
-                {lorem2}
-            </p>
-
-            <p>
-                {lorem}
-            </p>
-
-            <p>
-                {lorem3}
+                This site is a work in progress landing page and devblog for an unannounced game. If you'd like to use it, you can fork it over at <a href = 'https://github.com/panmik/landing-devblog.git' target="_blank">https://github.com/panmik/landing-devblog.git</a>.
             </p>
         </div>
     );

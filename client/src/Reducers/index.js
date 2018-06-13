@@ -109,10 +109,10 @@ const articlesReducer = (state=initialState.articles, action) => {
 };
 
 export default combineReducers({
-    user: commonReducer(initialState.user, types.UPDATE_USER, reducerLogger()),
+    user: commonReducer(initialState.user, types.UPDATE_USER),
     refs: commonReducer(initialState.refs, types.UPDATE_REFS),
     componentStates: componentStatesReducer,
     articles: articlesReducer,
-    comments: commonReducer(initialState.comments, types.SET_COMMENTS, reducerLogger("in comments reducer:")),
+    comments: commonReducer(initialState.comments, types.SET_COMMENTS),
     reply: commonReducer(initialState.reply, types.UPDATE_REPLY),
 });

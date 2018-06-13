@@ -5,6 +5,9 @@ const TextContent = ({body}) => {
     return (
         <div className="text-content">
             {body.map((elem, index) => {
+                if (elem.options && elem.options.width) {
+                    console.log(elem.content);
+                }
                 switch (elem.type) {
                     case 'paragraph': {
                         return <p className='paragraph-content' key={index}>{elem.content}</p>
@@ -16,7 +19,7 @@ const TextContent = ({body}) => {
                         return <img className='image-inline' key={index} width={elem.options ? elem.options.width || '600' : '600'} height='auto' src={elem.content} alt="" />
                     }
                     case 'image': {
-                        return <img className='image-content' key={index} width={elem.options ? elem.options.width || '600' : '600'} height='auto' src={elem.content} alt="" />
+                        return <img className={(elem.options && elem.options.width) ? 'image-center' : 'image-content'} width={elem.options && elem.options.width} height='auto' key={index} src={elem.content} alt="" />
                     }
                     default: {
                         return <p key={index}>???</p>

@@ -5,7 +5,7 @@ import TextContent from './TextContent';
 const Article = ({url, title, intro, date, tags, body}) => {
     return (
         <React.Fragment>
-            <h2 className="">{title}</h2>
+            <h2 className="">{title}</h2> 
             <p className="secondary-text">{tags.join(', ')}</p>    
             <TextContent body={body} />
             <hr/>

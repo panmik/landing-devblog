@@ -6,8 +6,9 @@ const ArticleCard = ({title, thumbnail, toLink, intro, date}) => {
     console.log(thumbnail);
     return (
         <div key={toLink} className="card">
-            {title.substr(0,4) !== "Deve" &&
-            <img className="card-img-top" src={thumbnail ? thumbnail : "/images/placeholder.png"} alt="article thumbnail" />}
+            <Link to={toLink}>
+                <img className="card-img-top" src={thumbnail ? thumbnail : "/images/placeholder.png"} alt="article thumbnail" />
+            </Link>
             <div className="card-body">
                 <Link to={toLink}>
                     <h5 className="card-title">{title}</h5>

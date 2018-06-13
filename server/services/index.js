@@ -29,7 +29,7 @@ MongoClient.connect(uri, { useNewUrlParser: true }, (err, database) => {
     if(err) throw err;
 
     db = database.db(connParams.dbname);
-    console.log("connected to database");
+    console.log(`connected to database ${connParams.dbname}`);
     msg = "initialized!";
 });
 
