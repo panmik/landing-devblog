@@ -12,7 +12,7 @@ const routes = require('./routes/index');
 app.use('/comments', routes.comments);
 app.use('/articles', routes.articles);
 
-app.get('/', (req, res) => res.send("What's up"));
-//app.use(express.static('public'));
+//app.get('/', (req, res) => res.send("What's up"));
+app.use(express.static('public'));
 
 app.listen(port, () => console.log(`listening on port ${port}`));

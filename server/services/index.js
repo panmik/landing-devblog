@@ -23,8 +23,6 @@ if (process.env.MONGODB_URI) {
     uri = `mongodb://localhost:${connParams.port}/${connParams.dbname}`;
 }
 
-
-console.log(connParams);
 MongoClient.connect(uri, { useNewUrlParser: true }, (err, database) => {
     if(err) throw err;
 
