@@ -1,18 +1,28 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
-const uri = process.env.MONGODB_URI || `mongodb://localhost:${27017}/${databaseName}`;
-
 let db = null;
 let msg = '';
-let res = /mongodb:\/\/(.+?):(.+?)@(.+?):([0-9]+)\/(.+?$)/g.exec(uri);
-const connParams = {
-    username: res[1],
-    password: res[2],
-    domain: res[3],
-    port: res[4],
-    dbname: res[5]
-};
+let connParams = {};
+let uri = '';
+if (process.env.MONGODB_URI) {
+    uri = process.env.MONGODB_URI;
+    let res = /mongodb:\/\/(.+?):(.+?)@(.+?):([0-9]+)\/(.+?$)/g.exec(uri);
+    connParams = {
+        username: res[1],
+        password: res[2],
+        domain: res[3],
+        port: res[4],
+        dbname: res[5]
+    };
+} else {
+    connParams = {
+        port: 27017,
+        dbname: 'blog'
+    };
+    uri = `mongodb://localhost:${connParams.port}/${connParams.dbname}`;
+}
+
 
 console.log(connParams);
 MongoClient.connect(uri, { useNewUrlParser: true }, (err, database) => {

@@ -13,28 +13,19 @@ function getAllInPage(query) {
                 throw new Error("page not available");
             }
             const lastIndex = Math.min(firstIndex + articlesPerPage, result.length);
-            const articles = result.map(a => {
-                if (getFullContent) {
-                    return {
-                        url: a.url,
-                        title: a.title,
-                        thumbnail: a.thumbnail,
-                        tags: a.tags,
-                        intro: a.intro,
-                        body: a.body,
-                        date: a.date,
-                        commentCount: 15
-                    }
-                } else {
-                    return {
-                        url: a.url,
-                        title: a.title,
-                        thumbnail: a.thumbnail,
-                        tags: a.tags,
-                        intro: a.intro,
-                        date: a.date
-                    }
-                }
+            const articles = result.map(({
+                url,
+                title,
+                author,
+                thumbnail,
+                tags,
+                intro,
+                body,
+                date,
+                commentCount = 15
+            }) => {
+                let a = { url, title, author, thumbnail, tags, intro, date, commentCount };
+                return getFullContent ? a : { ...a, body };
             })
             .sort(sortByDateDescending)
             .slice(firstIndex, lastIndex);

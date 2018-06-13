@@ -1,0 +1,15 @@
+Landing page and dev blog for a game.    
+
+#### backend  
+- [ ] insertion validator  
+
+#### frontend  
+- [ ] add comment  
+- [ ] -//- on 'Leave a Comment' click  
+- [ ] reply form styling  
+- [ ] redesign article tiles (aside with titles / scrolllist with titles and summary)  
+- [ ] home - placeholder art and embedded content  
+- [ ] persistance  
+- [ ] clear logs  
+- [ ] hackish css   
+- [ ] clear public folder  
