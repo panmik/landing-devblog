@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 const ArticleCard = ({title, thumbnail, toLink, intro, date}) => {
-    console.log(thumbnail);
     return (
         <div key={toLink} className="card">
             <Link to={toLink}>

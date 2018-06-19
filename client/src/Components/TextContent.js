@@ -5,9 +5,6 @@ const TextContent = ({body}) => {
     return (
         <div className="text-content">
             {body.map((elem, index) => {
-                if (elem.options && elem.options.width) {
-                    console.log(elem.content);
-                }
                 switch (elem.type) {
                     case 'paragraph': {
                         return <p className='paragraph-content' key={index}>{elem.content}</p>

@@ -20,8 +20,6 @@ class App extends React.Component {
                         <Route path='/devblog' component={DevBlog} />
                         <Route path='/contact' component={Contact} />
                         <Route path='/presskit' component={PressKit} />
-                        
-                        <Route path='/404' component={NotFound} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

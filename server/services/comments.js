@@ -21,6 +21,10 @@ function getAll(flat = true) {
 }
 
 function add({ articleUrl, path, userName, date, text }) {
+    let commentInfo = {
+        user: '',
+        text: ''
+    };
     return getArticles()
         //ensure parent article exists
         .findOne({ url: articleUrl, [path]: { $exists: true } })
@@ -28,6 +32,8 @@ function add({ articleUrl, path, userName, date, text }) {
             if (!result) {
                 throw new Error("invalid path or article url");
             } else {
+                commentInfo.user = userName;
+                commentInfo.text = text;
                 return {
                     _id: ObjectID(),
                     userName,
@@ -43,7 +49,7 @@ function add({ articleUrl, path, userName, date, text }) {
         })
         .then(operation => {
             if (operation.result.nModified > 0) {
-                return "comment added";
+                return `user '${commentInfo.user}' posted '${commentInfo.text}'`;
             } else {
                 throw new Error("invalid article url");
             }

@@ -12,11 +12,49 @@ function sendError(res, msg) {
     res.status(500).send(msg);
 }
 
-const responseHandler = (controller) =>
+function sendMail(body, subject) {
+    if (!process.env.DEVBLOG_SERVICE_USER
+        || !process.env.DEVBLOG_SERVICE_PASSWORD
+        || !process.env.DEVBLOG_SERVICE_RECEIVER) {
+            return;
+        }
+
+    console.log('------------------');
+    console.log(body);
+
+    const transporter = require('nodemailer').createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.DEVBLOG_SERVICE_USER,
+            pass: process.env.DEVBLOG_SERVICE_PASSWORD
+        }
+    });
+
+    transporter.sendMail({
+        from: process.env.DEVBLOG_SERVICE_USER,
+        to: process.env.DEVBLOG_SERVICE_RECEIVER,
+        subject: subject,
+        text: body
+    }, (error, info) => {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
+
+const responseHandler = (controller, callback) =>
     (req, res, err) => {
         controller({...req.query, ...req.params, ...req.body})
         .then(result => {
             res.send(result);
+            return result;
+        })
+        .then(result => {
+            if (callback) {
+                callback(result);
+            }
         })
         .catch(error => {
             console.error("error in router:")
@@ -27,6 +65,7 @@ const responseHandler = (controller) =>
 
  module.exports = {
     responseHandler,
+    sendMail,
     errorMessages,
     sendSuccess,
     sendError
